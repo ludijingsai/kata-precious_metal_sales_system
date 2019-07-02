@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Product {
-	public List<Map> getProductList()
+	public static Map getProduct(String Id)
 	{ 
 		List<Map> productList=new ArrayList();
 		Map map1=new HashMap();
@@ -72,8 +72,16 @@ public class Product {
 		map7.put("preferential", "2");
 		map7.put("fullreduction", "3");
 		productList.add(map7);
-		
-		return productList;
+		Map mapresult=new HashMap();
+		for(Map item:productList)
+		{
+			String id =item.get("Id").toString();
+		   if(id.equals(Id))
+		   {
+			   return item;
+		   }
+		}
+		return mapresult;
 		
 	}
 }
